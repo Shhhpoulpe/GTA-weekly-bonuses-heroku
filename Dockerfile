@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM tiangolo/uvicorn-gunicorn:python3.9-slim
 
 WORKDIR /usr/src/app
 
@@ -12,4 +12,4 @@ RUN pip3 install -r requirements.txt
 
 EXPOSE $PORT
 
-CMD ["uvicorn", "main:app","--host", "0.0.0.0", "--port", $PORT]
+CMD uvicorn main:app --host 0.0.0.0 --port $PORT
